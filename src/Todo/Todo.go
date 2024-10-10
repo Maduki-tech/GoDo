@@ -10,14 +10,16 @@ type TodoElement struct {
 	Completed bool   `json:"completed"`
 }
 
-func (t Todo) New() Todo {
-
+func New() Todo {
 	return Todo{
-		Todos: make([]TodoElement, 10),
+		Todos: []TodoElement{},
 	}
-
 }
 
-func (t Todo) AddTodo(input Todo) {
+func (t *Todo) AddTodo(input TodoElement) {
+	t.Todos = append(t.Todos, input)
+}
 
+func (t Todo) GetTodos() []TodoElement {
+	return t.Todos
 }
