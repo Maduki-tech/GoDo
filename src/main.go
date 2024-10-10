@@ -24,12 +24,7 @@ func addTodo(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	Todo.AddTodo(
-		todo.TodoElement{
-			ID:        1,
-			Title:     "Test",
-			Completed: false,
-		})
+	Todo.AddTodo("New Todo")
 }
 
 func getAllTodos(w http.ResponseWriter, r *http.Request) {

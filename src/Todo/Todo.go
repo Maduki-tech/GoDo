@@ -16,8 +16,15 @@ func New() Todo {
 	}
 }
 
-func (t *Todo) AddTodo(input TodoElement) {
-	t.Todos = append(t.Todos, input)
+func (t *Todo) AddTodo(title string) {
+	newID := len(t.Todos) + 1
+	todo := TodoElement{
+		ID:        newID,
+		Title:     title,
+		Completed: false,
+	}
+
+	t.Todos = append(t.Todos, todo)
 }
 
 func (t Todo) GetTodos() []TodoElement {
